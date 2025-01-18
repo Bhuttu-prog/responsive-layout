@@ -1,8 +1,10 @@
 import React from "react";
-import { Box, Typography, TextField, IconButton, Avatar } from "@mui/material";
+import { Box, Typography, TextField, IconButton, Avatar, useMediaQuery } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 export default function Home() {
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+
   return (
     <Box
       sx={{
@@ -37,7 +39,16 @@ export default function Home() {
             <SearchIcon />
           </IconButton>
         </Box>
-        <Avatar sx={{ bgcolor: "blue" }}>J</Avatar>
+
+        {/* Avatar and Name for larger screens */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Avatar sx={{ bgcolor: "blue" }}>J</Avatar>
+          {!isSmallScreen && (
+            <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+              John
+            </Typography>
+          )}
+        </Box>
       </Box>
 
       {/* Content */}
