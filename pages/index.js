@@ -9,7 +9,6 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
-        p: 2,
       }}
     >
       {/* Header */}
@@ -19,63 +18,59 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "space-between",
           borderBottom: "1px solid green",
-          pb: 1,
-          mb: 2,
+          p: 2,
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: "bold" }}>
           Brand Name
         </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 1,
-          }}
-        >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <TextField
-            size="small"
             variant="outlined"
+            size="small"
             placeholder="Search..."
-            sx={{ width: "200px" }}
+            sx={{
+              width: { xs: "150px", sm: "200px", md: "300px" },
+            }}
           />
           <IconButton>
             <SearchIcon />
           </IconButton>
         </Box>
-
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Avatar sx={{ bgcolor: "blue" }}>J</Avatar>
-          <Typography>John</Typography>
-        </Box>
+        <Avatar sx={{ bgcolor: "blue" }}>J</Avatar>
       </Box>
 
-      {/* Main Content */}
+      {/* Content */}
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", md: "row" },
           flex: 1,
           gap: 2,
-          flexDirection: { xs: "column", md: "row" }, // Responsive layout
+          p: 2,
         }}
       >
+        {/* Left Content */}
         <Box
           sx={{
             flex: 1,
-            border: "1px solid lightgray",
-            bgcolor: "whitesmoke",
-            minHeight: "200px",
+            bgcolor: "lightgray",
+            border: "1px solid gray",
+            borderRadius: "4px",
+            height: { xs: "200px", md: "auto" },
           }}
-        />
+        ></Box>
+
+        {/* Right Content */}
         <Box
           sx={{
             flex: 1,
-            border: "1px solid lightgray",
-            bgcolor: "whitesmoke",
-            minHeight: "200px",
+            bgcolor: "lightgray",
+            border: "1px solid gray",
+            borderRadius: "4px",
+            height: { xs: "200px", md: "auto" },
           }}
-        />
+        ></Box>
       </Box>
     </Box>
   );
