@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, IconButton, Avatar } from "@mui/material";
+import { Box, Typography, TextField, IconButton, Avatar, useMediaQuery } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 export default function Home() {
   const [searchVisible, setSearchVisible] = useState(false);
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
 
   // Toggle search visibility on smaller screens
   const toggleSearchVisibility = () => {
@@ -92,7 +93,15 @@ export default function Home() {
             )}
           </Box>
 
-          <Avatar sx={{ bgcolor: "#4caf50", color: "#ffffff" }}>J</Avatar>
+          {/* Avatar and Name for larger screens */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <Avatar sx={{ bgcolor: "#4caf50", color: "#ffffff" }}>J</Avatar>
+          {!isSmallScreen && (
+            <Typography variant="body1" sx={{ fontWeight: "bold", color: "#4caf50" }}>
+              John
+            </Typography>
+          )}
+        </Box>
         </Box>
       </Box>
 
